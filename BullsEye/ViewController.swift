@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var targetValueOutlet: UILabel!
     var currentValue: Int = 0
     var targetValue: Int = 0
+    var difference: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +21,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showAlert() {
+        calculateDifference()
         let message = "Your slider value is: \(currentValue)" +
-                     "\nThe target value is: \(targetValue)"
+                     "\nThe target value is: \(targetValue)"  +
+                     "\nThe difference between these values is: \(difference)"
         // Creating UIAlertController to notify user
         let alert = UIAlertController(title: "Hello, World!", message: message, preferredStyle: .alert)
         // Creating UIAlertAction to be added in UIAlertController later
@@ -49,6 +52,18 @@ class ViewController: UIViewController {
     func updateLabels() {
         // Setting the Outlet 'targetValue's value
         targetValueOutlet.text = String(targetValue)
+    }
+    
+    func calculateDifference() {
+        if currentValue > targetValue {
+            difference = currentValue - targetValue
+        }
+        else if targetValue > currentValue {
+            difference = targetValue - currentValue
+        }
+        else {
+            difference = 0
+        }
     }
 }
 
