@@ -11,8 +11,13 @@ class ViewController: UIViewController {
     
     @IBOutlet var slider: UISlider!
     @IBOutlet var targetValueOutlet: UILabel!
+    @IBOutlet var userScoreOutlet: UILabel!
+    @IBOutlet var roundNumberOutlet: UILabel!
+    
     var currentValue: Int = 0
     var targetValue: Int = 0
+    var userScore: Int = 0
+    var roundNumberTracker: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +25,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showAlert() {
-        let message = "Your slider value is: \(currentValue)" +
-                     "\nThe target value is: \(targetValue)"
+        let difference: Int = abs(targetValue - currentValue)
+        let accuiredPoints: Int = 100 - difference
+        userScore += accuiredPoints
+        
+        let message = "You scored \(accuiredPoints) points"
         // Creating UIAlertController to notify user
         let alert = UIAlertController(title: "Hello, World!", message: message, preferredStyle: .alert)
         // Creating UIAlertAction to be added in UIAlertController later
@@ -39,6 +47,7 @@ class ViewController: UIViewController {
     }
     
     func startNewRound() {
+        roundNumberTracker += 1
         currentValue = 50
         slider.value = Float(currentValue)
         // Generating random number on start of the application and setting it to the targetValue
@@ -49,6 +58,10 @@ class ViewController: UIViewController {
     func updateLabels() {
         // Setting the Outlet 'targetValue's value
         targetValueOutlet.text = String(targetValue)
+        // Updating user's score label
+        userScoreOutlet.text = String(userScore)
+        // Updating round number
+        roundNumberOutlet.text = String(roundNumberTracker)
     }
 }
 

@@ -104,8 +104,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="roundNumberOutlet" destination="ohg-NU-3Ch" id="Cm4-UN-iei"/>
                         <outlet property="slider" destination="QEO-cr-4Z6" id="8nN-A6-ZR7"/>
                         <outlet property="targetValueOutlet" destination="nQH-3c-Y0e" id="wej-Z4-Rwc"/>
+                        <outlet property="userScoreOutlet" destination="8iB-ob-YzD" id="FvX-LJ-fFo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
