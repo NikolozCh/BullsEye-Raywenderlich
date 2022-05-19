@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         calculateDifference()
         let message = "Your slider value is: \(currentValue)" +
                      "\nThe target value is: \(targetValue)"  +
-                     "\nThe difference between these values is: \(difference)"
+                     "\nThe difference is: \(difference)"
         // Creating UIAlertController to notify user
         let alert = UIAlertController(title: "Hello, World!", message: message, preferredStyle: .alert)
         // Creating UIAlertAction to be added in UIAlertController later
