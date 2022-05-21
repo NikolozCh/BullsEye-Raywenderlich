@@ -6,11 +6,19 @@
 //
 
 import UIKit
+import WebKit
 
 class AboutViewController: UIViewController {
 
+    @IBOutlet var wkView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let url = Bundle.main.url(forResource: "BullsEye", withExtension: "html") {
+            let request = URLRequest(url: url)
+            wkView.load(request)
+        }
     }
 
     @IBAction func closeButtonPressed() {
